@@ -1,0 +1,40 @@
+
+# Import the built-in scalars
+scalar Date
+
+# Define the Movie type
+type Movie {
+    id: ID!
+    tmdb_id: Int!
+    title: String!
+    overview: String
+    release_date: Date
+    runtime: Int
+    popularity: Float
+    poster_path: String
+    actors: [Actor]
+}
+
+# Define the Actor type
+type Actor {
+    id: ID!
+    tmdb_id: Int!
+    name: String!
+    popularity: Float
+    profile_path: String
+    movies: [Movie]
+}
+
+# Define the Query type
+type Query {
+    movie(id: ID!): Movie
+    movies: [Movie]
+    actor(id: ID!): Actor
+    actors: [Actor]
+}
+
+# Define the Mutation type
+type Mutation {
+    createMovie(tmdb_id: Int!, title: String!, overview: String, release_date: Date, runtime: Int, popularity: Float, poster_path: String): Movie
+
+
