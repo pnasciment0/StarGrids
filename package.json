@@ -1,32 +1,30 @@
-
 {
     "name": "tmdb-scraper",
     "version": "1.0.0",
     "description": "A Node.js web app that scrapes movie data from TMDB and stores it in a PostgreSQL database.",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js",
-      "scrape": "node tmdbScraper.js",
-      "cron": "node cronJob.js"
+        "start": "node server.js",
+        "scrape": "node tmdbScraper.js",
+        "cron": "node cronJob.js"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/yourusername/tmdb-scraper.git"
+        "type": "git",
+        "url": "git+https://github.com/yourusername/tmdb-scraper.git"
     },
     "author": "Your Name",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/yourusername/tmdb-scraper/issues"
+        "url": "https://github.com/yourusername/tmdb-scraper/issues"
     },
     "homepage": "https://github.com/yourusername/tmdb-scraper#readme",
     "dependencies": {
-      "apollo-server": "^2.19.2",
-      "graphql": "^15.5.0",
-      "node-fetch": "^2.6.1",
-      "pg": "^8.5.1",
-      "dotenv": "^8.2.0",
-      "node-cron": "^2.0.3"
+        "apollo-server": "^2.19.2",
+        "axios": "^1.4.0",
+        "dotenv": "^8.2.0",
+        "graphql": "^15.5.0",
+        "node-cron": "^2.0.3",
+        "node-fetch": "^2.6.1",
+        "pg": "^8.5.1"
     }
-  }
-  
-  
+}

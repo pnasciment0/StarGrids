@@ -1,5 +1,6 @@
-
 require('dotenv').config();
+
+// console.log(process.env.DB_HOST);
 
 module.exports = {
   tmdb: {
@@ -12,9 +13,9 @@ module.exports = {
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
+    url: process.env.DB_URL
   },
   server: {
     port: process.env.SERVER_PORT || 4000,
   },
 };
-```
