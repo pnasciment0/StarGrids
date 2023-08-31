@@ -1,0 +1,45 @@
+{
+    "actors": [
+        {
+            "id": 1,
+            "name": "Robert Downey Jr.",
+            "headshot_url": "https://example.com/headshots/robert_downey_jr.jpg",
+            "filmography": [1, 2, 3]  
+        },
+        {
+            "id": 2,
+            "name": "Jon Favreau",
+            "headshot_url": "https://example.com/headshots/jon_favreau.jpg",
+            "filmography": [1, 3] 
+        },
+        {
+            "id": 3,
+            "name": "Gwyneth Paltrow",
+            "headshot_url": "https://example.com/headshots/gwyneth_paltrow.jpg",
+            "filmography": [1, 2, 3] 
+        }
+    ],
+    "movies": [
+        {
+            "id": 1,
+            "name": "Iron Man",
+            "cast": [1, 2, 3],
+            "headshot_url": "https://example.com/posters/iron_man.jpg"
+        },
+        {
+            "id": 2,
+            "name": "The Avengers",
+            "cast": [1, 2],
+            "headshot_url": "https://example.com/posters/the_avengers.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Iron Man 2",
+            "cast": [1, 2, 3],
+            "headshot_url": "https://example.com/posters/iron_man_2.jpg"
+        }
+    ]
+}
+
+
+  

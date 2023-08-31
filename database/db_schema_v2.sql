@@ -14,7 +14,8 @@ CREATE TABLE actors (
 -- Movie Table
 CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) UNIQUE
+    name VARCHAR(255) UNIQUE,
+    poster_url TEXT
 );
 
 -- Category-Actor relationship (For Categories.answerPool)
