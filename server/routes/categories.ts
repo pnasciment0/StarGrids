@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createRecord, readRecord, updateRecord, deleteRecord } from '../helpers/db';
+import { createRecord, readRecord, updateRecord, deleteRecord } from '../../database/db';
 
 const router = Router();
 
