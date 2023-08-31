@@ -1,5 +1,5 @@
 import axios, { Method } from 'axios';
-import config from '../../config';
+import config from '../config';
 
 interface ApiCallOptions {
   method: Method;
