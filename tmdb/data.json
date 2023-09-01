@@ -24,19 +24,19 @@
             "id": 1,
             "name": "Iron Man",
             "cast": [1, 2, 3],
-            "headshot_url": "https://example.com/posters/iron_man.jpg"
+            "poster_url": "https://example.com/posters/iron_man.jpg"
         },
         {
             "id": 2,
             "name": "The Avengers",
             "cast": [1, 2],
-            "headshot_url": "https://example.com/posters/the_avengers.jpg"
+            "poster_url": "https://example.com/posters/the_avengers.jpg"
         },
         {
             "id": 3,
             "name": "Iron Man 2",
             "cast": [1, 2, 3],
-            "headshot_url": "https://example.com/posters/iron_man_2.jpg"
+            "poster_url": "https://example.com/posters/iron_man_2.jpg"
         }
     ]
 }

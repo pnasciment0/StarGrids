@@ -8,6 +8,7 @@ const { actors, movies } = data;
 
 import { Pool } from 'pg';
 import { connectDB, createRecord } from '../database/db';  // import from your db.ts
+import { Actor, Movie } from '../server/types';
 
 const addDataToDB = async () => {
   const db: Pool = connectDB();  // Assumes your connectDB() is exported
@@ -17,7 +18,7 @@ const addDataToDB = async () => {
   
   try {
     // Add actors
-    const actorPromises = actors.map(async (actor) => {
+    const actorPromises = actors.map(async (actor: Actor) => {
       const { id, name, headshot_url } = actor;
       return createRecord('actors', {
         id,
@@ -27,12 +28,12 @@ const addDataToDB = async () => {
     });
     
     // Add movies
-    const moviePromises = movies.map(async (movie) => {
-      const { id, name, headshot_url } = movie;
+    const moviePromises = movies.map(async (movie: Movie) => {
+      const { id, name, poster_url } = movie;
       return createRecord('movies', {
         id,
         name,
-        poster_url: headshot_url,
+        poster_url
       });
     });
     
