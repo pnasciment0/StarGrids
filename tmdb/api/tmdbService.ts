@@ -18,3 +18,17 @@ export const fetchPopularPeople = async () => {
     throw err;
   }
 };
+
+export const fetchMovieCreditsForPerson = async (personId: number) => {
+  try {
+    const data = await apiCall({
+      method: 'GET',
+      url: `/person/${personId}/movie_credits`,
+    });
+    // Transform data if needed
+    return data.cast;  // Assuming the API returns the data in a `cast` field
+  } catch (err) {
+    console.error(`Failed to fetch movie credits for person ${personId}:`, err);
+    throw err;
+  }
+};
