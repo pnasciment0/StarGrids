@@ -4,10 +4,10 @@
     "description": "A Node.js web app that scrapes movie data from TMDB and stores it in a PostgreSQL database.",
     "main": "index.ts",
     "scripts": {
-        "start": "ts-node server/index.ts",
+        "start": "ts-node index.ts",
         "scrape": "node tmdbScraper.js",
         "cron": "node cronJob.js"
-    },    
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yourusername/tmdb-scraper.git"

@@ -1,6 +1,7 @@
+/// <reference types="../../server/node_modules/@types/node" />
 require('dotenv').config({ path: '../.env' });
 
-import axios, { Method } from 'axios';
+import axios, { Method } from '../../server/node_modules/axios';
 import config from '../config';
 
 interface ApiCallOptions {

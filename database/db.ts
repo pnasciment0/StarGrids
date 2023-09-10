@@ -1,5 +1,5 @@
-import { Pool, QueryResult } from 'pg';
-import dotenv from 'dotenv';
+import { Pool, QueryResult } from '../server/node_modules/pg';
+import dotenv from '../server/node_modules/dotenv';
 
 dotenv.config({ path: '../.env' });
 
@@ -17,7 +17,7 @@ const connectDB = (): Pool => {
     },
   });
 
-  pool.query('SELECT NOW()', (err, res) => {
+  pool.query('SELECT NOW()', (err: Error, res: QueryResult) => {
     if (err) {
       console.error('Error executing query', err.stack);
     } else {

@@ -4,9 +4,10 @@
       "module": "commonjs",
       "strict": true,
       "esModuleInterop": true,
-      "outDir": "./dist"
+      "outDir": "./dist",
+      "skipLibCheck": true,
     },
-    "include": ["./**/*.ts", "index.ts"],
+    "include": ["./**/*.ts", "index.ts", "../database/**/*.ts"],
     "exclude": ["node_modules"]
   }
   
