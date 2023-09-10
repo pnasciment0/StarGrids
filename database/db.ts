@@ -1,5 +1,5 @@
-import { Pool, QueryResult } from '../server/node_modules/pg';
-import dotenv from '../server/node_modules/dotenv';
+import { Pool, QueryResult } from 'pg';
+import * as dotenv from 'dotenv';
 
 dotenv.config({ path: '../.env' });
 
