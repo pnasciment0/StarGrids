@@ -8,16 +8,14 @@ interface Category {
 }
 
 interface FormData {
-  name: string;
-  description: string;
+  categoryname: string;
 }
 
 const BASE_URL = "http://localhost:8001"
 
 const CategoryAdmin: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    description: ''
+    categoryname: ''
   });
   
   const [categories, setCategories] = useState<Category[]>([]);
@@ -42,7 +40,7 @@ const CategoryAdmin: React.FC = () => {
     try {
       const res = await axios.post<Category>(`${BASE_URL}/api/categories/create`, formData);
       setCategories([...categories, res.data]);
-      setFormData({ name: '', description: '' });
+      setFormData({ categoryname: '' });
     } catch (error) {
       console.error('Error creating category:', error);
     }
@@ -79,17 +77,8 @@ const CategoryAdmin: React.FC = () => {
           <input
             type="text"
             name="name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={formData.description}
-            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            value={formData.categoryname}
+            onChange={(e) => setFormData({ categoryname: e.target.value })}
           />
         </label>
         <button type="submit">Create Category</button>
