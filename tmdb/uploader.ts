@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 
 // Read data.json file
 const rawData = fs.readFileSync('./data.json', 'utf-8');
