@@ -12,6 +12,8 @@ interface FormData {
   description: string;
 }
 
+const BASE_URL = "http://localhost:8001"
+
 const CategoryAdmin: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -25,7 +27,7 @@ const CategoryAdmin: React.FC = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get<Category[]>('/api/categories'); // Adjust the URL as needed
+        const res = await axios.get<Category[]>(`${BASE_URL}/api/categories`); // Adjust the URL as needed
         setCategories(res.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -38,7 +40,7 @@ const CategoryAdmin: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post<Category>('/api/categories/create', formData);
+      const res = await axios.post<Category>(`${BASE_URL}/api/categories/create`, formData);
       setCategories([...categories, res.data]);
       setFormData({ name: '', description: '' });
     } catch (error) {
@@ -48,7 +50,7 @@ const CategoryAdmin: React.FC = () => {
 
   const handleUpdate = async (id: number, updatedData: Partial<Category>) => {
     try {
-      const res = await axios.put<Category>(`/api/categories/update/${id}`, updatedData);
+      const res = await axios.put<Category>(`${BASE_URL}/api/categories/update/${id}`, updatedData);
       setCategories(
         categories.map((category) => (category.id === id ? res.data : category))
       );
@@ -59,7 +61,7 @@ const CategoryAdmin: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`/api/categories/delete/${id}`);
+      await axios.delete(`${BASE_URL}/api/categories/delete/${id}`);
       setCategories(categories.filter((category) => category.id !== id));
     } catch (error) {
       console.error('Error deleting category:', error);
