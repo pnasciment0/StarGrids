@@ -1,6 +1,7 @@
 // graphqlSchema.ts
-import { GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList } from 'graphql';
+import { GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList, GraphQLNonNull } from 'graphql';
 import { fetchPopularPeople, fetchMovieCreditsForPerson } from '../tmdb/api/tmdbService';
+import { createRecord, updateRecord, deleteRecord } from '../database/db';
 
 const MovieCreditType = new GraphQLObjectType({
   name: 'MovieCredit',
@@ -39,6 +40,52 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addPerson: {
+      type: PersonType,
+      args: {
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        profile_path: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        return createRecord('actors', {
+          name: args.name,
+          headshot_url: args.profile_path
+        });
+      },
+    },
+    updatePerson: {
+      type: PersonType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLInt) },
+        name: { type: GraphQLString },
+        profile_path: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        const updates = {
+          name: args.name,
+          headshot_url: args.profile_path,
+        };
+        return updateRecord('actors', updates, 'id=$1', [args.id]);
+      },
+    },
+    deletePerson: {
+      type: PersonType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLInt) },
+      },
+      resolve(parent, args) {
+        return deleteRecord('actors', 'id=$1', [args.id]);
+      },
+    },
+    // Add similar mutations for Movies and other entities
+  },
+});
+
+
 export default new GraphQLSchema({
   query: RootQuery,
+  mutation: Mutation
 });
