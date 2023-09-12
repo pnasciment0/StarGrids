@@ -4,8 +4,8 @@
     "description": "A Node.js web app that scrapes movie data from TMDB and stores it in a PostgreSQL database.",
     "main": "index.ts",
     "scripts": {
-        "start": "ts-node index.ts",
-        "scrape": "node tmdbScraper.js",
+        "start": "ts-node server/index.ts",
+        "scrape": "node tmdb/scraper.s",
         "cron": "node cronJob.js"
     },
     "repository": {

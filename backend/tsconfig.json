@@ -1,5 +1,4 @@
 {
-    "extends": "../tsconfig.json",
     "compilerOptions": {
       "target": "ES6",
       "module": "commonjs",
@@ -8,7 +7,12 @@
       "outDir": "./dist",
       "skipLibCheck": true,
     },
-    "include": ["./**/*.ts", "index.ts", "../database/**/*.ts"],
+    "include": [
+      "server/**/*.ts", 
+      "index.ts", 
+      "database/**/*.ts",
+      "tmdb/**/*.ts"
+    ],    
     "exclude": ["node_modules"]
   }
   

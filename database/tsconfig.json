@@ -1,7 +1,0 @@
-{
-    "extends": "../tsconfig.json",
-    "compilerOptions": {
-      // project specific settings
-    }
-}
-  

@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@types/node": "^20.6.0",
-    "dotenv": "^16.3.1",
-    "pg": "^8.11.3"
-  }
-}

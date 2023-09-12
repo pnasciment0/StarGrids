@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Configuring dotenv
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 // Debugging: Print the DB_URL to ensure it's being read correctly
 console.log('DB_URL:', process.env.DB_URL);
