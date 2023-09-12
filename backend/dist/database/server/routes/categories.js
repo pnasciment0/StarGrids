@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const db_1 = require("../../database/db");
+const db_1 = require("../../db");
 const router = (0, express_1.Router)();
 // Create
 router.post('/create', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
