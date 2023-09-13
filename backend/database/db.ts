@@ -36,7 +36,7 @@ const createRecord = async (tableName: string, record: Record<string, any>): Pro
   const values = Object.values(record);
   const placeholder = values.map((_, index) => `$${index + 1}`).join(", ");
   
-  const queryText = `INSERT INTO ${tableName}(${fields}) VALUES(${placeholder}) RETURNING *;`;
+  const queryText = `INSERT INTO ${tableName}(${fields}) VALUES(${placeholder}) ON CONFLICT DO NOTHING RETURNING *;`;
 
   try {
     const res = await db.query(queryText, values);

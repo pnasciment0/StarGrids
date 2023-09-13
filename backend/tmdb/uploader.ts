@@ -1,20 +1,16 @@
 import * as fs from 'fs';
 
-import axios from 'axios';
-
-// Read data.json file
-const rawData = fs.readFileSync('./data.json', 'utf-8');
-const data = JSON.parse(rawData);
-
 import { Pool } from 'pg';
 import { connectDB, createRecord } from '../database/db';  // import from your db.ts
-import { Actor, Movie } from '../server/types';
 
-const addDataToDB = async (jsonData: any) => { // Assuming jsonData is your data.json
-  const db: Pool = connectDB(); // Assumes your connectDB() is exported
+const addDataToDB = async (jsonData: any) => {
+  const db: Pool = connectDB();
   
   // Begin transaction
   await db.query('BEGIN');
+  
+  // Start timer
+  console.time("Upload Time");
   
   try {
     const popularPeople = jsonData.data.popularPeople;
@@ -24,30 +20,39 @@ const addDataToDB = async (jsonData: any) => { // Assuming jsonData is your data
       const { id, name, profile_path, filmography } = person;
       
       // Add actor
-      await createRecord('actors', {
+      const actorRes = await createRecord('actors', {
         id,
         name,
         headshot_url: profile_path,
       });
       
+      if (actorRes.rowCount > 0) {
+        console.log(`Uploaded actor: ${name}, ID: ${actorRes.rows[0].id}`);
+      }
+      
       // Add movies for this actor
       const moviePromises = filmography.map(async (movie: any) => {
         const { id, title, poster_path } = movie;
-        await createRecord('movies', {
+        const movieRes = await createRecord('movies', {
           id,
           name: title,
-          poster_url: poster_path
+          poster_url: poster_path,
         });
-        
-        // Add relationship for this movie and actor
-        await createRecord('movie_actors', {
-          movie_id: id,
-          actor_id: person.id,
-        });
-        await createRecord('actor_movies', {
-          actor_id: person.id,
-          movie_id: id,
-        });
+
+        if (movieRes.rowCount > 0) {
+          console.log(`Uploaded movie: ${title}, ID: ${movieRes.rows[0].id}`);
+
+          // Populate relational databases
+          await createRecord('movie_actors', {
+            movie_id: id,
+            actor_id: person.id,
+          });
+
+          await createRecord('actor_movies', {
+            actor_id: person.id,
+            movie_id: id,
+          });
+        }
       });
       
       // Wait for all movies for this actor to be added
@@ -59,6 +64,9 @@ const addDataToDB = async (jsonData: any) => { // Assuming jsonData is your data
     
     // Commit transaction
     await db.query('COMMIT');
+    
+    // End timer
+    console.timeEnd("Upload Time");
   } catch (e) {
     console.error('Transaction failed, rolling back', e);
     
@@ -67,7 +75,11 @@ const addDataToDB = async (jsonData: any) => { // Assuming jsonData is your data
   }
 };
 
+// Read data.json file
+const path = require('path');
+const fullPath = path.join(__dirname, 'data.json');
+const rawData = fs.readFileSync(fullPath, 'utf-8');
+const data = JSON.parse(rawData);
 
 // Execute the function
 addDataToDB(data).catch((err) => console.error(err));
-
