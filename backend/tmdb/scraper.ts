@@ -1,3 +1,4 @@
+// scraper.ts - fetches data from TMDB API using GraphQL
 import { graphql, parse } from 'graphql';
 import schema from '../graphql/graphqlSchema';
 import * as fs from 'fs';

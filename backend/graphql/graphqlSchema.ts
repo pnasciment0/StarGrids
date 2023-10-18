@@ -1,6 +1,6 @@
 // graphqlSchema.ts
 import { GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList, GraphQLNonNull } from 'graphql';
-import { fetchPopularPeople, fetchMovieCreditsForPerson } from '../tmdb/api/tmdbService';
+import { fetchPopularPeople, fetchPopularPeoplePaginated, fetchMovieCreditsForPerson } from '../tmdb/api/tmdbService';
 
 const MovieCreditType = new GraphQLObjectType({
   name: 'MovieCredit',
@@ -32,8 +32,13 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     popularPeople: {
       type: new GraphQLList(PersonType),
+      args: {
+        offset: { type: GraphQLInt },
+        limit: { type: GraphQLInt },
+      },
       resolve(parent, args) {
-        return fetchPopularPeople();
+        // Pass the pagination parameters to your fetch function
+        return fetchPopularPeoplePaginated(args.offset, args.limit);
       },
     },
   },
