@@ -1,10 +1,16 @@
+// App.js
+
+import './App.css';
 import React from 'react';
-import CategoryAdmin from './categoryAdmin';
+import NavBar from './components/NavBar';
+import GameGrid from './components/GameGrid';
 
 const App: React.FC = () => {
   return (
     <div>
-      <CategoryAdmin />
+      <NavBar />
+      {/* GameGrid component will go here */}
+      <GameGrid />
     </div>
   );
 };

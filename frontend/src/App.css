@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +40,38 @@
     transform: rotate(360deg);
   }
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto repeat(3, auto); /* Adjust the number 3 based on gridSize */
+  gap: 5px;
+}
+
+.grid-header-cell {
+  text-align: center;
+}
+
+.movie-poster {
+  width: 100px;
+  height: 150px;
+}
+
+.movie-name {
+  /* Add styling for movie name text if needed */
+}
+
+.grid-cell {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+.grid-corner-cell {
+  /* Style for the top-left corner empty cell */
+}
+
+.grid-row-title {
+  text-align: center;
+  /* Additional styling for row title if needed */
+}
+

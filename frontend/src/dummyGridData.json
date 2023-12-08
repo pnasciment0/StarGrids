@@ -1,0 +1,151 @@
+{
+    "Puzzle": [
+      {
+        "position": 1,
+        "positionNickname": "TopLeft",
+        "possibleAnswers": [
+          {"actorId": 1, "numTimesActorIsGuessed": 0},
+          {"actorId": 2, "numTimesActorIsGuessed": 0},
+          {"actorId": 3, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 1,
+        "rowCriteriaId": 1,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 2,
+        "positionNickname": "TopMiddle",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 2,
+        "rowCriteriaId": 1,
+        "numTotalCorrectGuesses": 0
+      },{
+        "position": 3,
+        "positionNickname": "TopRight",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 3,
+        "rowCriteriaId": 1,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 4,
+        "positionNickname": "MiddleLeft",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 1,
+        "rowCriteriaId": 2,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 5,
+        "positionNickname": "MiddleCenter",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 2,
+        "rowCriteriaId": 2,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 6,
+        "positionNickname": "MiddleRight",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 3,
+        "rowCriteriaId": 2,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 7,
+        "positionNickname": "BottomLeft",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 1,
+        "rowCriteriaId": 3,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 8,
+        "positionNickname": "BottomMiddle",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 2,
+        "rowCriteriaId": 3,
+        "numTotalCorrectGuesses": 0
+      },
+      {
+        "position": 9,
+        "positionNickname": "BottomRight",
+        "possibleAnswers": [
+          {"actorId": 4, "numTimesActorIsGuessed": 0},
+          {"actorId": 5, "numTimesActorIsGuessed": 0}
+        ],
+        "columnCriteriaId": 3,
+        "rowCriteriaId": 3,
+        "numTotalCorrectGuesses": 0
+      }
+    ],
+    "Criteria": [
+       {
+            "id": 1,
+            "type": "Movie",
+            "name": "The Shawshank Redemption", 
+            "posterUrl": "q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+        },
+        {
+            "id": 2,
+            "type": "Movie",
+            "name": "Black Panther", 
+            "posterUrl": "url_to_poster_2"
+        },
+        {
+            "id": 3,
+            "type": "Movie",
+            "name": "Inception", 
+            "posterUrl": "oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
+        },
+        {  
+            "id": 4, 
+            "type": "Category",
+            "description": "Oscar Nominated"
+        },
+        {  
+            "id": 5, 
+            "type": "Movie",
+            "description": "The Dark Knight Rises",
+            "posterUrl": "hr0L2aueqlP2BYUblTTjmtn0hw4.jpg"
+        },
+        {  
+            "id": 6, 
+            "type": "Movie",
+            "description": "Avengers: Endgame",
+            "posterUrl": "url_to_poster_5"
+        }
+    ],
+    "Actors": [
+        {
+            "id": 1,
+            "name": "Anne Hathaway", "headshotUrl": "url_to_headshot_1"
+        },
+        {
+            "id": 2,
+            "name": "Leonardo DiCaprio", "headshotUrl": "url_to_headshot_2"
+        }
+    ]
+  }
+  
